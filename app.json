@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "세줄",
+    "slug": "sejul",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "bookapp",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jeontaeheon.sejul"
+    },
+    "android": {
+      "package": "com.bookapp"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-asset",
+      "expo-web-browser"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "d97bedd7-fc04-486e-a8c5-ee194d991493"
+      }
+    }
+  }
+}
