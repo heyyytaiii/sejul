@@ -6,6 +6,7 @@
     "orientation": "portrait",
     "scheme": "bookapp",
     "userInterfaceStyle": "light",
+    "icon": "./assets/icon.png",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
