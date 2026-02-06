@@ -13,11 +13,13 @@
 ## 1. 핵심 기능 (MVP)
 
 ### 1.1 인상 깊은 구절 저장
+
 - 책에서 기억하고 싶은 문장/구절 저장
 - 페이지 번호 기록 (선택)
 - 여러 구절 저장 가능
 
 ### 1.2 3줄 독후감 (핵심 차별점)
+
 구조화된 템플릿으로 누구나 임팩트 있는 독후감을 쉽게 작성:
 
 ```
@@ -27,16 +29,19 @@
 ```
 
 **왜 이 구조인가?**
+
 - 본질 파악 (무엇에 관한 책?)
 - 감정/지적 임팩트 포착 (뭐가 인상적?)
 - 행동 유도 (어떻게 적용?)
 
 **UX 원칙:**
+
 - 각 필드는 빈칸 채우기 형식으로 부담 최소화
 - placeholder로 예시 제공
 - 글자수 제한으로 간결함 강제 (각 100자 이내 권장)
 
 ### 1.3 책 관리
+
 - 읽은 책 목록 관리
 - 책 제목, 저자, 표지 이미지
 - 검색해서 추가
@@ -45,14 +50,14 @@
 
 ## 2. 기술 스택
 
-| 영역 | 기술 | 이유 |
-|------|------|------|
-| Framework | **Expo** (React Native) | 빠른 개발, 간편한 빌드 |
-| Language | **TypeScript** | 타입 안정성 |
-| Backend | **Supabase** | PostgreSQL 기반, 인증/실시간 지원, 추후 소셜 기능 대비 |
-| Navigation | **React Navigation** | RN 표준 네비게이션 |
-| State | **Zustand** | 간단하고 가벼운 상태관리 |
-| Styling | **NativeWind** (Tailwind) | 빠른 스타일링 |
+| 영역       | 기술                      | 이유                                                   |
+| ---------- | ------------------------- | ------------------------------------------------------ |
+| Framework  | **Expo** (React Native)   | 빠른 개발, 간편한 빌드                                 |
+| Language   | **TypeScript**            | 타입 안정성                                            |
+| Backend    | **Supabase**              | PostgreSQL 기반, 인증/실시간 지원, 추후 소셜 기능 대비 |
+| Navigation | **React Navigation**      | RN 표준 네비게이션                                     |
+| State      | **Zustand**               | 간단하고 가벼운 상태관리                               |
+| Styling    | **NativeWind** (Tailwind) | 빠른 스타일링                                          |
 
 ---
 
@@ -71,30 +76,36 @@
 ```
 
 ### 3.1 Home 화면
+
 - 읽은 책 카드 목록
 - 각 카드: 표지, 제목, 저자, 별점
 - 탭하면 BookDetail로 이동
 
 ### 3.2 AddBook 화면
+
 - 책 검색 (Google Books API 또는 수동 입력)
 - 제목, 저자, 표지 URL 입력
 - 저장 버튼
 
 ### 3.3 BookDetail 화면
+
 - 책 정보 헤더
 - 인상 깊은 구절 목록
 - 내 리뷰 (있으면 표시, 없으면 작성 유도)
 - 구절 추가 / 리뷰 작성 버튼
 
 ### 3.4 AddQuote 화면
+
 - 구절 텍스트 입력 (멀티라인)
 - 페이지 번호 (선택)
 - 저장 버튼
 
 ### 3.5 WriteReview 화면 (3줄 독후감)
+
 **구조화된 입력 폼:**
+
 1. **한 문장 요약**
-   - placeholder: "이 책은 ______에 관한 책이다"
+   - placeholder: "이 책은 **\_\_**에 관한 책이다"
    - 힌트: "책의 핵심 주제를 한 문장으로"
 
 2. **가장 인상적인 점**
@@ -114,6 +125,7 @@
 ## 4. 데이터 모델 (Supabase)
 
 ### 4.1 books 테이블
+
 ```sql
 create table books (
   id uuid primary key default gen_random_uuid(),
@@ -126,6 +138,7 @@ create table books (
 ```
 
 ### 4.2 quotes 테이블
+
 ```sql
 create table quotes (
   id uuid primary key default gen_random_uuid(),
@@ -137,6 +150,7 @@ create table quotes (
 ```
 
 ### 4.3 reviews 테이블 (3줄 독후감)
+
 ```sql
 create table reviews (
   id uuid primary key default gen_random_uuid(),
@@ -149,6 +163,7 @@ create table reviews (
 ```
 
 **필드 설명:**
+
 - `one_sentence`: 책의 본질을 한 문장으로 (100자 제한)
 - `most_impressive`: 가장 인상 깊었던 점 (100자 제한)
 - `apply_to_life`: 삶에 적용할 교훈/행동 (100자 제한)
@@ -193,21 +208,25 @@ book-app/
 ## 6. 구현 우선순위
 
 ### Phase 1: 기본 구조 (먼저)
+
 1. Expo 프로젝트 초기화
 2. 기본 네비게이션 설정
 3. Supabase 연결
 
 ### Phase 2: 핵심 기능
+
 1. 책 추가 기능
 2. 책 목록 표시
 3. 책 상세 화면
 
 ### Phase 3: 기록 기능
+
 1. 구절 저장
 2. 리뷰 작성
 3. 별점 기능
 
 ### Phase 4: 마무리
+
 1. UI 다듬기
 2. 에러 처리
 3. 로딩 상태
@@ -222,6 +241,7 @@ book-app/
 - **카드 UI**: 책/구절/리뷰 모두 카드 형태
 
 ### 색상 (예시)
+
 - Primary: #6366f1 (인디고)
 - Background: #fafafa
 - Card: #ffffff
@@ -253,4 +273,4 @@ npm install nativewind tailwindcss
 
 ---
 
-*이 문서를 참고하여 구현을 진행하세요. 컨텍스트 초기화 후에도 이 파일을 읽으면 프로젝트 방향을 유지할 수 있습니다.*
+_이 문서를 참고하여 구현을 진행하세요. 컨텍스트 초기화 후에도 이 파일을 읽으면 프로젝트 방향을 유지할 수 있습니다._

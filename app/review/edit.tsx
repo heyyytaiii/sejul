@@ -27,7 +27,10 @@ const FIELD_PLACEHOLDERS = {
 type FieldType = "one_sentence" | "most_impressive" | "apply_to_life";
 
 export default function EditReviewScreen() {
-  const { bookId, field } = useLocalSearchParams<{ bookId: string; field: FieldType }>();
+  const { bookId, field } = useLocalSearchParams<{
+    bookId: string;
+    field: FieldType;
+  }>();
   const router = useRouter();
   const { data: review } = useReview(bookId || "");
   const saveReviewMutation = useSaveReview(bookId || "");
@@ -47,9 +50,12 @@ export default function EditReviewScreen() {
 
     try {
       await saveReviewMutation.mutateAsync({
-        one_sentence: field === "one_sentence" ? value.trim() : review.one_sentence,
-        most_impressive: field === "most_impressive" ? value.trim() : review.most_impressive,
-        apply_to_life: field === "apply_to_life" ? value.trim() : review.apply_to_life,
+        one_sentence:
+          field === "one_sentence" ? value.trim() : review.one_sentence,
+        most_impressive:
+          field === "most_impressive" ? value.trim() : review.most_impressive,
+        apply_to_life:
+          field === "apply_to_life" ? value.trim() : review.apply_to_life,
       });
       router.back();
     } catch (error) {

@@ -109,7 +109,9 @@ export default function WriteReviewScreen() {
                   placeholder="이 책에서 가장 기억에 남는 것"
                   placeholderTextColor="#9ca3af"
                   value={mostImpressive}
-                  onChangeText={(t) => setMostImpressive(t.slice(0, MAX_LENGTH))}
+                  onChangeText={(t) =>
+                    setMostImpressive(t.slice(0, MAX_LENGTH))
+                  }
                   multiline
                   textAlignVertical="top"
                 />

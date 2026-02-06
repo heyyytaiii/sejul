@@ -53,7 +53,7 @@ export async function fetchQuotes(bookId: string): Promise<Quote[]> {
 
 export async function addQuote(
   bookId: string,
-  quote: Omit<Quote, "id" | "book_id">
+  quote: Omit<Quote, "id" | "book_id">,
 ): Promise<Quote> {
   const {
     data: { user },
@@ -90,7 +90,7 @@ export async function fetchReview(bookId: string): Promise<Review | null> {
 
 export async function saveReview(
   bookId: string,
-  review: Omit<Review, "id" | "book_id">
+  review: Omit<Review, "id" | "book_id">,
 ): Promise<Review> {
   const {
     data: { user },
@@ -108,7 +108,7 @@ export async function saveReview(
         apply_to_life: review.apply_to_life,
         user_id: user.id,
       },
-      { onConflict: "book_id" }
+      { onConflict: "book_id" },
     )
     .select()
     .single();
@@ -124,6 +124,9 @@ export async function deleteQuote(quoteId: string): Promise<void> {
 }
 
 export async function deleteReview(bookId: string): Promise<void> {
-  const { error } = await supabase.from("reviews").delete().eq("book_id", bookId);
+  const { error } = await supabase
+    .from("reviews")
+    .delete()
+    .eq("book_id", bookId);
   if (error) throw error;
 }

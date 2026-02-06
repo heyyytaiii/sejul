@@ -25,7 +25,9 @@ export function QuoteCard({ quote, onDelete }: QuoteCardProps) {
           </Text>
           <View className="flex-row justify-between items-center mt-3">
             {quote.page_number ? (
-              <Text className="text-[13px] text-gray-400">p.{quote.page_number}</Text>
+              <Text className="text-[13px] text-gray-400">
+                p.{quote.page_number}
+              </Text>
             ) : (
               <View />
             )}

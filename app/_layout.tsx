@@ -11,8 +11,8 @@ import { Ionicons } from "@expo/vector-icons";
 function BackButton() {
   const router = useRouter();
   return (
-    <Pressable onPress={() => router.back()} className="p-1 -ml-2">
-      <Ionicons name="chevron-back" size={28} color="#6366f1" />
+    <Pressable onPress={() => router.back()} className="py-1 px-2">
+      <Ionicons name="chevron-back" size={26} color="#6366f1" />
     </Pressable>
   );
 }

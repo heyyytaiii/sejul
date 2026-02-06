@@ -4,7 +4,9 @@ import { Review } from "@/lib/types";
 
 interface ReviewCardProps {
   review: Review;
-  onEdit?: (field: "one_sentence" | "most_impressive" | "apply_to_life") => void;
+  onEdit?: (
+    field: "one_sentence" | "most_impressive" | "apply_to_life",
+  ) => void;
 }
 
 export function ReviewCard({ review, onEdit }: ReviewCardProps) {
@@ -34,7 +36,10 @@ export function ReviewCard({ review, onEdit }: ReviewCardProps) {
             꼭 기억하고 싶은 한 가지는?
           </Text>
           {onEdit && (
-            <Pressable onPress={() => onEdit("most_impressive")} className="p-1">
+            <Pressable
+              onPress={() => onEdit("most_impressive")}
+              className="p-1"
+            >
               <Ionicons name="pencil" size={14} color="#d97706" />
             </Pressable>
           )}

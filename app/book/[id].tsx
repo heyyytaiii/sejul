@@ -1,7 +1,22 @@
-import { View, Text, ScrollView, Pressable, Image, Alert, ActivityIndicator } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  Pressable,
+  Image,
+  Alert,
+  ActivityIndicator,
+} from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { useBooks, useQuotes, useReview, useDeleteQuote, useDeleteReview, useDeleteBook } from "@/lib/hooks/useBooks";
+import {
+  useBooks,
+  useQuotes,
+  useReview,
+  useDeleteQuote,
+  useDeleteReview,
+  useDeleteBook,
+} from "@/lib/hooks/useBooks";
 import { QuoteCard } from "@/components/QuoteCard";
 import { ReviewCard } from "@/components/ReviewCard";
 
@@ -50,7 +65,10 @@ export default function BookDetailScreen() {
 
   return (
     <View className="flex-1 bg-gray-50">
-      <ScrollView className="flex-1" contentContainerStyle={{ paddingBottom: 100 }}>
+      <ScrollView
+        className="flex-1"
+        contentContainerStyle={{ paddingBottom: 100 }}
+      >
         {/* Book Header */}
         <View className="bg-white px-5 pt-6 pb-8">
           <View className="flex-row">
@@ -105,7 +123,9 @@ export default function BookDetailScreen() {
           {bookReview ? (
             <ReviewCard
               review={bookReview}
-              onEdit={(field) => router.push(`/review/edit?bookId=${id}&field=${field}`)}
+              onEdit={(field) =>
+                router.push(`/review/edit?bookId=${id}&field=${field}`)
+              }
             />
           ) : (
             <View className="bg-gray-50 rounded-2xl p-6 items-center">
