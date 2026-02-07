@@ -9,7 +9,7 @@
     "icon": "./assets/icon.png",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "com.jeontaeheon.sejul",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
